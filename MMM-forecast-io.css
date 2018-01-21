@@ -30,7 +30,7 @@
 
 .MMM-forecast-io .forecast-row .forecast-day {
   text-align: left;
-  padding-right: 0.2em;
+  padding-right: 1em;
 }
 .MMM-forecast-io .forecast-row .weathericon {
   text-align: center;
@@ -48,7 +48,7 @@
 }
 
 .MMM-forecast-io .forecast-bar .bar {
-  background-color: #aaa;
+  background-color: #555;
   line-height: 0.8em;
   border-radius: 1em;
   border: 0.5ex transparent solid;
@@ -72,4 +72,17 @@
 
 .small.MMM-forecast-io .precipitation-graph {
   width: 300px;
+}
+
+.summary {
+  padding-top: 50px;
+  width: 300px;
+  text-align: left;
+  color: #fff;
+}
+
+.currentSummary {
+  vertical-align: top;
+  font-size: 25px;
+  line-height: 33px;
 }

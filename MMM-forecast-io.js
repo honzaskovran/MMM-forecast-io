@@ -164,16 +164,12 @@ Module.register("MMM-forecast-io", {
 
     var temperature = document.createElement("span");
     temperature.className = "bright";
-    temperature.innerHTML = " " + this.temp + "&deg;";
+    temperature.innerHTML = " " + this.temp + '&deg; <span class="currentSummary">' +currentWeather.summary + '</span>';
     large.appendChild(temperature);
 
-    var summaryText = minutely ? minutely.summary : hourly.summary;
-    var summary = document.createElement("div");
-    summary.className = "small dimmed summary";
-    summary.innerHTML = summaryText;
+    console.log(this);
 
     wrapper.appendChild(large);
-    wrapper.appendChild(summary);
 
     if (this.config.alwaysShowPrecipitationGraph ||
         (this.config.enablePrecipitationGraph &&
@@ -184,6 +180,13 @@ Module.register("MMM-forecast-io", {
     if (this.config.showForecast) {
       wrapper.appendChild(this.renderWeatherForecast());
     }
+
+    var summaryText = minutely ? minutely.summary : hourly.summary;
+    var summary = document.createElement("div");
+    summary.className = "summary";
+    summary.innerHTML = summaryText;
+
+    wrapper.appendChild(summary);
 
     return wrapper;
   },
@@ -324,8 +327,8 @@ Module.register("MMM-forecast-io", {
     var forecastBarWrapper = document.createElement("td");
     forecastBarWrapper.appendChild(forecastBar);
 
-    row.appendChild(dayTextSpan);
     row.appendChild(icon);
+    row.appendChild(dayTextSpan);
     row.appendChild(forecastBarWrapper);
 
     return row;
